@@ -8,57 +8,16 @@
         body {
             background: url('background.jpg') no-repeat center center fixed;
             background-size: cover;
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
         }
-        h1 {
-            text-shadow: 2px 2px 4px #000;
-            margin-bottom: 20px;
-        }
-        p {
+        h1, p, label {
             text-shadow: 1px 1px 2px #000;
-            margin-bottom: 20px;
-            font-size: 1.2em;
-            text-align: center;
-        }
-        form {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-        label, select, button {
-            display: block;
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 10px;
-            font-size: 1em;
-            border-radius: 5px;
         }
         select, button {
-            background: #fff;
-            color: #000;
-            border: none;
-        }
-        button {
-            cursor: pointer;
-            background: #007BFF;
-            color: #fff;
-            transition: background 0.3s;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-        #result {
-            margin-top: 20px;
-            font-size: 1.2em;
-            text-align: center;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
         }
     </style>
 </head>
@@ -81,6 +40,7 @@
             <option value="みずがめ座">みずがめ座</option>
             <option value="うお座">うお座</option>
         </select>
+        <br>
         <label for="yourBlood">あなたの血液型:</label>
         <select id="yourBlood">
             <option value="A">A</option>
@@ -88,11 +48,13 @@
             <option value="O">O</option>
             <option value="AB">AB</option>
         </select>
+        <br>
         <label for="yourGender">あなたの性別:</label>
         <select id="yourGender">
             <option value="男性">男性</option>
             <option value="女性">女性</option>
         </select>
+        <br>
         <label for="partnerSign">パートナーの星座:</label>
         <select id="partnerSign">
             <option value="おひつじ座">おひつじ座</option>
@@ -108,6 +70,7 @@
             <option value="みずがめ座">みずがめ座</option>
             <option value="うお座">うお座</option>
         </select>
+        <br>
         <label for="partnerBlood">パートナーの血液型:</label>
         <select id="partnerBlood">
             <option value="A">A</option>
@@ -115,11 +78,13 @@
             <option value="O">O</option>
             <option value="AB">AB</option>
         </select>
+        <br>
         <label for="partnerGender">パートナーの性別:</label>
         <select id="partnerGender">
             <option value="男性">男性</option>
             <option value="女性">女性</option>
         </select>
+        <br>
         <button type="button" onclick="checkCompatibility()">相性を確認する</button>
     </form>
     <p id="result"></p>
@@ -143,6 +108,7 @@
     </script>
 </body>
 </html>
+
 
 
 
