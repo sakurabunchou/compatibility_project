@@ -99,10 +99,15 @@
             var partnerBloodType = document.getElementById('partnerBloodType').value;
             var partnerGender = document.getElementById('partnerGender').value;
 
-            var result = yourZodiac + ' (' + yourBloodType + ' ' + yourGender + ') and ' +
-                         partnerZodiac + ' (' + partnerBloodType + ' ' + partnerGender + 
-                         ') compatibility result: Excellent!'; // Simplified example
-            document.getElementById('result').innerText = result;
+            var key = `${yourZodiac}_${yourBloodType}_${yourGender}_and_${partnerZodiac}_${partnerBloodType}_${partnerGender}`;
+
+            fetch('compatibility_results.json')
+                .then(response => response.json())
+                .then(data => {
+                    var result = data[key] || 'Compatibility information not found.';
+                    document.getElementById('result').innerText = result;
+                })
+                .catch(error => console.error('Error:', error));
         }
     </script>
 </body>
