@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>完全版 星座と血液型の相性診断</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0d3b66;
+            color: #f4d35e;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #ee964b;
+        }
+        label {
+            margin: 10px auto;
+            display: block;
+            color: #f95738;
+            font-size: 20px;
+        }
+        select {
+            width: 300px;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 10px;
+            background-color: #faedcd;
+            border: 2px solid #f4d35e;
+            font-size: 16px;
+        }
+        button {
+            background-color: #f95738;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #f4a261;
+        }
+        #result {
+            background-color: #faedcd;
+            color: #0d3b66;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 15px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>完全版 星座と血液型の相性診断</h1>
+    <label>あなたの性別:</label>
+    <select id="yourGender">
+        <option value="Male">男性</option>
+        <option value="Female">女性</option>
+    </select>
+    <br>
+    <label>あなたの星座:</label>
+    <select id="yourZodiac">
+        <option value="Aries">牡羊座</option>
+        <option value="Taurus">牡牛座</option>
+        <option value="Gemini">双子座</option>
+        <option value="Cancer">蟹座</option>
+        <option value="Leo">獅子座</option>
+        <option value="Virgo">乙女座</option>
+        <option value="Libra">天秤座</option>
+        <option value="Scorpio">蠍座</option>
+        <option value="Sagittarius">射手座</option>
+        <option value="Capricorn">山羊座</option>
+        <option value="Aquarius">水瓶座</option>
+        <option value="Pisces">魚座</option>
+    </select>
+    <br>
+    <label>あなたの血液型:</label>
+    <select id="yourBloodType">
+        <option value="A">A型</option>
+        <option value="B">B型</option>
+        <option value="O">O型</option>
+        <option value="AB">AB型</option>
+    </select>
+    <br>
+    <label>パートナーの性別:</label>
+    <select id="partnerGender">
+        <option value="Male">男性</option>
+        <option value="Female">女性</option>
+    </select>
+    <br>
+    <label>パートナーの星座:</label>
+    <select id="partnerZodiac">
+        <option value="Aries">牡羊座</option>
+        <option value="Taurus">牡牛座</option>
+        <option value="Gemini">双子座</option>
+        <option value="Cancer">蟹座</option>
+        <option value="Leo">獅子座</option>
+        <option value="Virgo">乙女座</option>
+        <option value="Libra">天秤座</option>
+        <option value="Scorpio">蠍座</option>
+        <option value="Sagittarius">射手座</option>
+        <option value="Capricorn">山羊座</option>
+        <option value="Aquarius">水瓶座</option>
+        <option value="Pisces">魚座</option>
+    </select>
+    <br>
+    <label>パートナーの血液型:</label>
+    <select id="partnerBloodType">
+        <option value="A">A型</option>
+        <option value="B">B型</option>
+        <option value="O">O型</option>
+        <option value="AB">AB型</option>
+    </select>
+    <br>
+    <button onclick="checkCompatibility()">相性を診断</button>
+    <p id="result"></p>
+
+    <script>
+        function checkCompatibility() {
+            const yourGender = document.getElementById('yourGender').value;
+            const yourZodiac = document.getElementById('yourZodiac').value;
+            const yourBloodType = document.getElementById('yourBloodType').value;
+            const partnerGender = document.getElementById('partnerGender').value;
+            const partnerZodiac = document.getElementById('partnerZodiac').value;
+            const partnerBloodType = document.getElementById('partnerBloodType').value;
+
+            const key = `${yourZodiac}_${yourBloodType}_${yourGender}_and_${partnerZodiac}_${partnerBloodType}_${partnerGender}`;
+
+            fetch('compatibility_results.json')
+                .then(response => response.json())
+                .then(data => {
+                    const resultMessage = data[key] || "この組み合わせに対するデータがありません。";
+                    document.getElementById('result').textContent = resultMessage;
+                })
+                .catch(error => {
+                    console.error('Error fetching compatibility results:', error);
+                    document.getElementById('result').textContent = "データの読み込みに失敗しました。";
+                });
+        }
+    </script>
+</body>
+</html>
+
