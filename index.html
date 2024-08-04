@@ -48,8 +48,8 @@
     </style>
 </head>
 <body>
-    <h1>互換性プロジェクトへようこそ</h1>
-    <p>あなたの星座と血液型、そしてパートナーの詳細を入力して相性の結果を確認してください。</p>
+    <h1>恋愛星座占いへようこそ</h1>
+    <p>あなたの星座と血液型、そして推しの詳細を入力して相性の結果を確認してください。</p>
     
     <form id="compatibilityForm">
         <h3>あなたの詳細</h3>
@@ -81,8 +81,8 @@
             <option value="Male">男</option>
         </select>
         
-        <h3>パートナーの詳細</h3>
-        <label for="partnerZodiac">パートナーの星座:</label>
+        <h3>推しの詳細</h3>
+        <label for="partnerZodiac">推しの星座:</label>
         <select id="partnerZodiac" name="partnerZodiac">
             <option value="Aries">牡羊座</option>
             <option value="Taurus">牡牛座</option>
@@ -97,20 +97,20 @@
             <option value="Aquarius">水瓶座</option>
             <option value="Pisces">魚座</option>
         </select>
-        <label for="partnerBloodType">パートナーの血液型:</label>
+        <label for="partnerBloodType">推しの血液型:</label>
         <select id="partnerBloodType" name="partnerBloodType">
             <option value="A">A</option>
             <option value="B">B</option>
             <option value="O">O</option>
             <option value="AB">AB</option>
         </select>
-        <label for="partnerGender">パートナーの性別:</label>
+        <label for="partnerGender">推しの性別:</label>
         <select id="partnerGender" name="partnerGender">
             <option value="Female">女</option>
             <option value="Male">男</option>
         </select>
         
-        <button type="button" onclick="calculateCompatibility()">互換性を確認する</button>
+        <button type="button" onclick="calculateCompatibility()">推しとの相性は？</button>
     </form>
 
     <div class="result" id="result"></div>
