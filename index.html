@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>互換性プロジェクト</title>
+    <title>相性診断プロジェクト</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -48,7 +48,7 @@
     </style>
 </head>
 <body>
-    <h1>恋愛星座占いへようこそ</h1>
+    <h1>推しとの相性診断プロジェクトへようこそ</h1>
     <p>あなたの星座と血液型、そして推しの詳細を入力して相性の結果を確認してください。</p>
     
     <form id="compatibilityForm">
@@ -77,8 +77,8 @@
         </select>
         <label for="yourGender">あなたの性別:</label>
         <select id="yourGender" name="yourGender">
-            <option value="Female">女</option>
             <option value="Male">男</option>
+            <option value="Female">女</option>
         </select>
         
         <h3>推しの詳細</h3>
@@ -106,11 +106,11 @@
         </select>
         <label for="partnerGender">推しの性別:</label>
         <select id="partnerGender" name="partnerGender">
-            <option value="Female">女</option>
             <option value="Male">男</option>
+            <option value="Female">女</option>
         </select>
         
-        <button type="button" onclick="calculateCompatibility()">推しとの相性は？</button>
+        <button type="button" onclick="calculateCompatibility()">推しとの相性</button>
     </form>
 
     <div class="result" id="result"></div>
@@ -129,7 +129,7 @@
             fetch('compatibility_results.json')
                 .then(response => response.json())
                 .then(data => {
-                    var result = data[key] || '互換性情報が見つかりませんでした。';
+                    var result = data[key] || '相性情報が見つかりませんでした。';
                     document.getElementById('result').innerText = result;
                 })
                 .catch(error => console.error('Error:', error));
@@ -137,4 +137,5 @@
     </script>
 </body>
 </html>
+
 
