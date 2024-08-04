@@ -152,5 +152,29 @@
 </body>
 </html>
 
+import json
+
+zodiac_signs = ["牡羊座", "牡牛座", "双子座", "蟹座", "獅子座", "乙女座", "天秤座", "蠍座", "射手座", "山羊座", "水瓶座", "魚座"]
+blood_types = ["A", "B", "O", "AB"]
+genders = ["男", "女"]
+
+compatibility_results = {}
+
+for z1 in zodiac_signs:
+    for b1 in blood_types:
+        for g1 in genders:
+            for z2 in zodiac_signs:
+                for b2 in blood_types:
+                    for g2 in genders:
+                        key = f"{z1}_{b1}_{g1}_and_{z2}_{b2}_{g2}"
+                        result = f"{z1}の{b1}型の{g1}と{z2}の{b2}型の{g2}は、お互いに特性を補完し合う可能性が高いです。"
+                        compatibility_results[key] = result
+
+# JSONファイルに保存
+with open('compatibility_results.json', 'w', encoding='utf-8') as json_file:
+    json.dump(compatibility_results, json_file, ensure_ascii=False, indent=4)
+
+
+
 
 
