@@ -4,9 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compatibility Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome to the Compatibility Project</h1>
-    <p>This is a sample page for GitHub Pages.</p>
+    <p>Enter your zodiac sign and blood type, and your partner's details to see the compatibility result.</p>
+    
+    <form id="compatibilityForm">
+        <h3>Your Details</h3>
+        <label for="yourZodiac">Your Zodiac Sign:</label>
+        <select id="yourZodiac" name="yourZodiac">
+            <option value="Aries">Aries</option>
+            <option value="Taurus">Taurus</option>
+            <option value="Gemini">Gemini</option>
+            <option value="Cancer">Cancer</option>
+            <option value="Leo">Leo</option>
+            <option value="Virgo">Virgo</option>
+            <option value="Libra">Libra</option>
+            <option value="Scorpio">Scorpio</option>
+            <option value="Sagittarius">Sagittarius</option>
+            <option value="Capricorn">Capricorn</option>
+            <option value="Aquarius">Aquarius</option>
+            <option value="Pisces">Pisces</option>
+        </select>
+        <br><br>
+        <label for="yourBloodType">Your Blood Type:</label>
+        <select id="yourBloodType" name="yourBloodType">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="O">O</option>
+            <option value="AB">AB</option>
+        </select>
+        <br><br>
+        <label for="yourGender">Your Gender:</label>
+        <select id="yourGender" name="yourGender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <br><br>
+        
+        <h3>Your Partner's Details</h3>
+        <label for="partnerZodiac">Partner's Zodiac Sign:</label>
+        <select id="partnerZodiac" name="partnerZodiac">
+            <option value="Aries">Aries</option>
+            <option value="Taurus">Taurus</option>
+            <option value="Gemini">Gemini</option>
+            <option value="Cancer">Cancer</option>
+            <option value="Leo">Leo</option>
+            <option value="Virgo">Virgo</option>
+            <option value="Libra">Libra</option>
+            <option value="Scorpio">Scorpio</option>
+            <option value="Sagittarius">Sagittarius</option>
+            <option value="Capricorn">Capricorn</option>
+            <option value="Aquarius">Aquarius</option>
+            <option value="Pisces">Pisces</option>
+        </select>
+        <br><br>
+        <label for="partnerBloodType">Partner's Blood Type:</label>
+        <select id="partnerBloodType" name="partnerBloodType">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="O">O</option>
+            <option value="AB">AB</option>
+        </select>
+        <br><br>
+        <label for="partnerGender">Partner's Gender:</label>
+        <select id="partnerGender" name="partnerGender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <br><br>
+        
+        <button type="button" onclick="calculateCompatibility()">Check Compatibility</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function calculateCompatibility() {
+            var yourZodiac = document.getElementById('yourZodiac').value;
+            var yourBloodType = document.getElementById('yourBloodType').value;
+            var yourGender = document.getElementById('yourGender').value;
+            var partnerZodiac = document.getElementById('partnerZodiac').value;
+            var partnerBloodType = document.getElementById('partnerBloodType').value;
+            var partnerGender = document.getElementById('partnerGender').value;
+
+            var result = yourZodiac + ' (' + yourBloodType + ' ' + yourGender + ') and ' +
+                         partnerZodiac + ' (' + partnerBloodType + ' ' + partnerGender + 
+                         ') compatibility result: Excellent!'; // Simplified example
+            document.getElementById('result').innerText = result;
+        }
+    </script>
 </body>
 </html>
