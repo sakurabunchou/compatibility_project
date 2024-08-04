@@ -7,20 +7,28 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+        .container {
             margin: 20px;
-            background-color: #f0f8ff;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
         h1 {
-            color: #333;
+            color: #ffeb3b;
             text-align: center;
         }
         form {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.2);
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 0 auto;
         }
         label {
             display: block;
@@ -44,82 +52,81 @@
         .result {
             margin-top: 20px;
             padding: 10px;
-            background-color: #e0f7fa;
+            background-color: rgba(255, 255, 255, 0.2);
             border-radius: 8px;
             border: 1px solid #4caf50;
-            max-width: 600px;
-            margin: 20px auto;
-            text-align: center;
         }
     </style>
 </head>
 <body>
-    <h1>相性診断プロジェクトへようこそ</h1>
-    <p style="text-align:center;">あなたの星座と血液型、そしてパートナーの詳細を入力して相性の結果を確認してください。</p>
-    
-    <form id="compatibilityForm">
-        <h3>あなたの詳細</h3>
-        <label for="yourZodiac">あなたの星座:</label>
-        <select id="yourZodiac" name="yourZodiac">
-            <option value="Aries">牡羊座</option>
-            <option value="Taurus">牡牛座</option>
-            <option value="Gemini">双子座</option>
-            <option value="Cancer">蟹座</option>
-            <option value="Leo">獅子座</option>
-            <option value="Virgo">乙女座</option>
-            <option value="Libra">天秤座</option>
-            <option value="Scorpio">蠍座</option>
-            <option value="Sagittarius">射手座</option>
-            <option value="Capricorn">山羊座</option>
-            <option value="Aquarius">水瓶座</option>
-            <option value="Pisces">魚座</option>
-        </select>
-        <label for="yourBloodType">あなたの血液型:</label>
-        <select id="yourBloodType" name="yourBloodType">
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="O">O</option>
-            <option value="AB">AB</option>
-        </select>
-        <label for="yourGender">あなたの性別:</label>
-        <select id="yourGender" name="yourGender">
-            <option value="Male">男</option>
-            <option value="Female">女</option>
-        </select>
+    <div class="container">
+        <h1>相性診断プロジェクトへようこそ</h1>
+        <p style="text-align:center;">あなたの星座と血液型、そしてパートナーの詳細を入力して相性の結果を確認してください。</p>
         
-        <h3>パートナーの詳細</h3>
-        <label for="partnerZodiac">パートナーの星座:</label>
-        <select id="partnerZodiac" name="partnerZodiac">
-            <option value="Aries">牡羊座</option>
-            <option value="Taurus">牡牛座</option>
-            <option value="Gemini">双子座</option>
-            <option value="Cancer">蟹座</option>
-            <option value="Leo">獅子座</option>
-            <option value="Virgo">乙女座</option>
-            <option value="Libra">天秤座</option>
-            <option value="Scorpio">蠍座</option>
-            <option value="Sagittarius">射手座</option>
-            <option value="Capricorn">山羊座</option>
-            <option value="Aquarius">水瓶座</option>
-            <option value="Pisces">魚座</option>
-        </select>
-        <label for="partnerBloodType">パートナーの血液型:</label>
-        <select id="partnerBloodType" name="partnerBloodType">
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="O">O</option>
-            <option value="AB">AB</option>
-        </select>
-        <label for="partnerGender">パートナーの性別:</label>
-        <select id="partnerGender" name="partnerGender">
-            <option value="Male">男</option>
-            <option value="Female">女</option>
-        </select>
-        
-        <button type="button" onclick="calculateCompatibility()">相性を確認する</button>
-    </form>
+        <form id="compatibilityForm">
+            <h3>あなたの詳細</h3>
+            <label for="yourZodiac">あなたの星座:</label>
+            <select id="yourZodiac" name="yourZodiac">
+                <option value="牡羊座">牡羊座</option>
+                <option value="牡牛座">牡牛座</option>
+                <option value="双子座">双子座</option>
+                <option value="蟹座">蟹座</option>
+                <option value="獅子座">獅子座</option>
+                <option value="乙女座">乙女座</option>
+                <option value="天秤座">天秤座</option>
+                <option value="蠍座">蠍座</option>
+                <option value="射手座">射手座</option>
+                <option value="山羊座">山羊座</option>
+                <option value="水瓶座">水瓶座</option>
+                <option value="魚座">魚座</option>
+            </select>
+            <label for="yourBloodType">あなたの血液型:</label>
+            <select id="yourBloodType" name="yourBloodType">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="O">O</option>
+                <option value="AB">AB</option>
+            </select>
+            <label for="yourGender">あなたの性別:</label>
+            <select id="yourGender" name="yourGender">
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+            
+            <h3>パートナーの詳細</h3>
+            <label for="partnerZodiac">パートナーの星座:</label>
+            <select id="partnerZodiac" name="partnerZodiac">
+                <option value="牡羊座">牡羊座</option>
+                <option value="牡牛座">牡牛座</option>
+                <option value="双子座">双子座</option>
+                <option value="蟹座">蟹座</option>
+                <option value="獅子座">獅子座</option>
+                <option value="乙女座">乙女座</option>
+                <option value="天秤座">天秤座</option>
+                <option value="蠍座">蠍座</option>
+                <option value="射手座">射手座</option>
+                <option value="山羊座">山羊座</option>
+                <option value="水瓶座">水瓶座</option>
+                <option value="魚座">魚座</option>
+            </select>
+            <label for="partnerBloodType">パートナーの血液型:</label>
+            <select id="partnerBloodType" name="partnerBloodType">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="O">O</option>
+                <option value="AB">AB</option>
+            </select>
+            <label for="partnerGender">パートナーの性別:</label>
+            <select id="partnerGender" name="partnerGender">
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+            
+            <button type="button" onclick="calculateCompatibility()">相性を確認する</button>
+        </form>
 
-    <div class="result" id="result"></div>
+        <div class="result" id="result"></div>
+    </div>
 
     <script>
         function calculateCompatibility() {
