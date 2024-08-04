@@ -151,6 +151,105 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相性診断プロジェクト</title>
+</head>
+<body>
+    <h1>相性診断プロジェクトへようこそ</h1>
+    <p>あなたの星座と血液型、そしてパートナーの詳細を入力して相性の結果を確認してください。</p>
+
+    <form id="compatibilityForm">
+        <label for="yourZodiac">あなたの星座:</label>
+        <select id="yourZodiac" name="yourZodiac">
+            <option value="おひつじ座">おひつじ座</option>
+            <option value="おうし座">おうし座</option>
+            <option value="ふたご座">ふたご座</option>
+            <option value="かに座">かに座</option>
+            <option value="しし座">しし座</option>
+            <option value="おとめ座">おとめ座</option>
+            <option value="てんびん座">てんびん座</option>
+            <option value="さそり座">さそり座</option>
+            <option value="いて座">いて座</option>
+            <option value="やぎ座">やぎ座</option>
+            <option value="みずがめ座">みずがめ座</option>
+            <option value="うお座">うお座</option>
+        </select>
+        
+        <label for="yourBloodType">あなたの血液型:</label>
+        <select id="yourBloodType" name="yourBloodType">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="O">O</option>
+            <option value="AB">AB</option>
+        </select>
+
+        <label for="yourGender">あなたの性別:</label>
+        <select id="yourGender" name="yourGender">
+            <option value="男性">男性</option>
+            <option value="女性">女性</option>
+        </select>
+
+        <label for="partnerZodiac">パートナーの星座:</label>
+        <select id="partnerZodiac" name="partnerZodiac">
+            <option value="おひつじ座">おひつじ座</option>
+            <option value="おうし座">おうし座</option>
+            <option value="ふたご座">ふたご座</option>
+            <option value="かに座">かに座</option>
+            <option value="しし座">しし座</option>
+            <option value="おとめ座">おとめ座</option>
+            <option value="てんびん座">てんびん座</option>
+            <option value="さそり座">さそり座</option>
+            <option value="いて座">いて座</option>
+            <option value="やぎ座">やぎ座</option>
+            <option value="みずがめ座">みずがめ座</option>
+            <option value="うお座">うお座</option>
+        </select>
+        
+        <label for="partnerBloodType">パートナーの血液型:</label>
+        <select id="partnerBloodType" name="partnerBloodType">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="O">O</option>
+            <option value="AB">AB</option>
+        </select>
+
+        <label for="partnerGender">パートナーの性別:</label>
+        <select id="partnerGender" name="partnerGender">
+            <option value="男性">男性</option>
+            <option value="女性">女性</option>
+        </select>
+
+        <button type="button" onclick="calculateCompatibility()">相性を確認する</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function calculateCompatibility() {
+            var yourZodiac = document.getElementById('yourZodiac').value;
+            var yourBloodType = document.getElementById('yourBloodType').value;
+            var yourGender = document.getElementById('yourGender').value;
+            var partnerZodiac = document.getElementById('partnerZodiac').value;
+            var partnerBloodType = document.getElementById('partnerBloodType').value;
+            var partnerGender = document.getElementById('partnerGender').value;
+
+            var key = `${yourZodiac}_${yourBloodType}_${yourGender}_and_${partnerZodiac}_${partnerBloodType}_${partnerGender}`;
+
+            fetch('compatibility_results.json')
+                .then(response => response.json())
+                .then(data => {
+                    var result = data[key] || '相性情報が見つかりませんでした。';
+                    document.getElementById('result').innerText = result;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
 
 
 
